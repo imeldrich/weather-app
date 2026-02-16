@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "./assets/logo.png"
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
     if (city === "") {
       alert("Enter a city")
     } else {
-      const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6a4913dc5d473442eeea3ba54f311c5c&units=metric`);
+      const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
       const weatherData = await weather.json();
       setWeather(weatherData)
     }
